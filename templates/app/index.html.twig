@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coopaines
+{% endblock %}
+
+{% block panel__main %}
+
+	{# Main top #}
+	<div class="bg-gray-900 sticky top-0 pt-4">
+		<div class="flex justify-between border border-gray-800 p-4 rounded-t-md">
+			<div>Accueil</div>
+			<div><twig:ux:icon name="icon-park-outline:config" class="w-5 cursor-pointer"/></div>
+		</div>
+	</div>
+
+	{# Main content #}
+	<div class="border-x border-gray-800">
+		{% for i in 0..20 %}
+
+			<twig:FeedPost></twig:FeedPost>
+
+		{% endfor %}
+	</div>
+
+
+{% endblock %}
+
+{% block panel__two %}{% endblock %}

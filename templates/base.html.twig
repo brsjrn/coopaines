@@ -1,17 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>"> {% block stylesheets %}{% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body class="bg-gray-900 text-white">
+
+		{% block body %}
+			<div id="main" class="flex gap-4 justify-center">
+				{% block main %}
+
+					<div class="w-64 ">
+						<div class="sticky top-0 pt-4">
+							<div class="border-b border-b-gray-800">
+
+								<div class="text-3xl font-bold p-4">Coopaines</div>
+
+								<div class="p-4">
+									{% block panel__one %}
+										<div class="flex flex-col gap-6">
+                                            <twig:MainMenuElt link="#" title="Accueil" icon="heroicons:home"></twig:MainMenuElt>
+                                            <twig:MainMenuElt link="#" title="Agenda" icon="heroicons:calendar-days-16-solid"></twig:MainMenuElt>
+                                            <twig:MainMenuElt link="#" title="Anonces" icon="heroicons:newspaper"></twig:MainMenuElt>
+                                            <twig:MainMenuElt link="#" title="Covoiturage" icon="bx:car"></twig:MainMenuElt>
+                                            <twig:MainMenuElt link="#" title="Autopartage" icon="ion:key-outline"></twig:MainMenuElt>
+										</div>
+									{% endblock %}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="panel__main" class="flex flex-col w-full rounded-md">
+						{% block panel__main %}{% endblock %}
+					</div>
+
+					<div class="w-64">
+						{% block panel__two %}{% endblock %}
+
+					</div>
+
+				{% endblock %}
+			</div>
+		{% endblock %}
+
+	</body>
 </html>
