@@ -15,4 +15,28 @@ final class AppController extends AbstractController
             'controller_name' => 'AppController',
         ]);
     }
+
+    #[Route('/evenement', name: 'app_evenement')]
+    public function evenement(): Response
+    {
+        return $this->render('app/evenement.html.twig', [
+            'controller_name' => 'AppController',
+        ]);
+    }
+
+    #[Route('/agenda', name: 'app_agenda')]
+    public function agenda(): Response
+    {
+        return $this->render('app/agenda.html.twig', [
+            'controller_name' => 'AppController',
+        ]);
+    }
+
+    #[Route('/covoiturage', name: 'app_covoiturage')]
+    public function covoiturage(): Response
+    {
+        return $this->render('app/covoiturage.html.twig', [
+            'controller_name' => 'AppController',
+        ]);
+    }
 }

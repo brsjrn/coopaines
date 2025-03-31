@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coopaines
+{% endblock %}
+
+{% block panel__main %}
+
+	{# Main top #}
+	<div class="bg-gray-900 sticky top-0 pt-4 z-10">
+		<div class="flex justify-between border border-gray-800 p-4 rounded-t-md">
+			<div class="flex gap-2"><div>←</div><a href="{{ path('app_app') }}">retour</a></div>
+		</div>
+	</div>
+
+	{# Main content #}
+	<div class="border-x border-gray-800">
+		<div class="relative">
+			<img src="https://picsum.photos/800/300" alt="Couverture de l'événement" class="w-full h-52 object-cover">
+
+			<div class="absolute -bottom-6 left-8">
+				<twig:BlocDate></twig:BlocDate>
+				{# <div class="flex flex-col items-center px-5 py-2 bg-gray-800 group-hover:bg-gray-700 rounded-md aspect-square">
+					<div class="text-sm tracking-wider">mardi</div>
+					<div class="text-4xl font-bold">18</div>
+					<div class="text-sm uppercase tracking-wider">mars</div>
+				</div> #}
+			</div>
+		</div>
+
+		<div class="flex flex-col p-6 mt-4 gap-6">
+			<h1 class="text-4xl font-bold">Concert de La Machine</h1>
+
+			<div class="flex flex-col gap-2 bg-gray-800 rounded-md p-4">
+				<div class="flex items-center gap-2 text-sm">
+					<twig:ux:icon name="mingcute:time-fill" class="h-4" />
+					<div>Débute à 9h30</div>
+					<div>/</div>
+					<div>Dure 2h</div>
+				</div>
+				<div class="flex items-center gap-2 text-sm">
+					<twig:ux:icon name="solar:euro-bold" class="h-4" />
+					<div>Normal : 14€ / Réduit : 8€ / Moins de 6 ans : gratuit</div>
+				</div>
+				<div class="flex gap-1 text-sm">
+					<twig:ux:icon name="mdi:location" class="h-5" />
+					<div class="font-bold">Bourges</div>
+					<div>/</div>
+					<div class="">l'Antidote, café militant, 88 rue d'Auron</div>
+				</div>
+			</div>
+			<div class="flex flex-col gap-2 text-gray-400">
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis reiciendis quo asperiores dignissimos nostrum nisi similique quam magnam, molestias est fuga facere, animi adipisci sequi fugiat, iusto hic pariatur.</p>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis reiciendis quo asperiores dignissimos nostrum nisi similique quam magnam, molestias est fuga facere, animi adipisci sequi fugiat, iusto hic pariatur.</p>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis reiciendis quo asperiores dignissimos nostrum nisi similique quam magnam, molestias est fuga facere, animi adipisci sequi fugiat, iusto hic pariatur.</p>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+
+{% block panel__two %}{% endblock %}

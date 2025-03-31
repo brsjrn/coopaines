@@ -1,11 +1,50 @@
-<div{{attributes}} class="p-4 border-b border-b-gray-800 bg-gray-900 hover:bg-gray-800">
-	{# Post intro #}
-	<div class="text-sm text-gray-500 mb-4">Bidule a partagé un nouveau covoit</div>
+<div{{attributes}} class="group p-6 border-b border-b-gray-800 bg-gray-900 hover:bg-gray-800">
+    {% set typeTitle = "" %}
+
+    {% if type == 1 %}
+        {% set typeTitle = 'a partagé un nouveau trajet de <span class="font-bold">covoiturage</span>' %}
+        {% set typeIcon = "bx:car" %}
+    {% endif %}
+
+    {% if type == 2 %}
+        {% set typeTitle = 'a ajouté un nouvel <span class="font-bold">événement</span>' %}
+        {% set typeIcon = "heroicons:calendar-days-16-solid" %}
+    {% endif %}
+
+    {% if type == 3 %}
+        {% set typeTitle = 'a partagé une nouvelle <span class="font-bold">annonce</span>' %}
+        {% set typeIcon = "heroicons:newspaper" %}
+    {% endif %}
+
+    {% if type == 4 %}
+        {% set typeTitle = 'a réservé le véhicule d\'<span class="font-bold">autopartage</span>' %}
+        {% set typeIcon = "ion:key-outline" %}
+    {% endif %}
+
+	{% if hasMeta %}
+        {# Post intro #}
+        <div class="flex text-sm text-gray-500 justify-between mb-6">
+            <div class="flex gap-2 items-center">
+                <twig:ux:icon name="{{ typeIcon }}" class="h-4" /> <div>Bidule {{ typeTitle | raw }}</div>
+            </div>
+
+            <div>17 mars 2025</div>
+        </div>
+    {% endif %}
 
 	{# Post content #}
-	<div class="p-4 rounded-md">
-        Coucou c'est trop bien :D<br />
-        Bla bli blou
+	<div class="p-0 rounded-md">
+       
+        {# Covoiturage #}
+        {% if type == 1 %}
+            <twig:CovoitPost></twig:CovoitPost>
+        {% endif %}
+
+        {# Evenement #}
+        {% if type == 2 %}
+            <twig:EventPost></twig:EventPost>
+        {% endif %}
+
     </div>
 
     {# Post footer #}

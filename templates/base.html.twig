@@ -24,15 +24,15 @@
 						<div class="sticky top-0 pt-4">
 							<div class="border-b border-b-gray-800">
 
-								<div class="text-3xl font-bold p-4">Coopaines</div>
+								<div class="text-3xl font-bold p-4"><a href="{{ path('app_app') }}">Coopaines</a></div>
 
 								<div class="p-4">
 									{% block panel__one %}
 										<div class="flex flex-col gap-6">
-                                            <twig:MainMenuElt link="#" title="Accueil" icon="heroicons:home"></twig:MainMenuElt>
-                                            <twig:MainMenuElt link="#" title="Agenda" icon="heroicons:calendar-days-16-solid"></twig:MainMenuElt>
+                                            <twig:MainMenuElt link="{{ path('app_app') }}" title="Accueil" icon="heroicons:home"></twig:MainMenuElt>
+                                            <twig:MainMenuElt link="{{ path('app_agenda') }}" title="Agenda" icon="heroicons:calendar-days-16-solid"></twig:MainMenuElt>
                                             <twig:MainMenuElt link="#" title="Anonces" icon="heroicons:newspaper"></twig:MainMenuElt>
-                                            <twig:MainMenuElt link="#" title="Covoiturage" icon="bx:car"></twig:MainMenuElt>
+                                            <twig:MainMenuElt link="{{ path('app_covoiturage') }}" title="Covoiturage" icon="bx:car"></twig:MainMenuElt>
                                             <twig:MainMenuElt link="#" title="Autopartage" icon="ion:key-outline"></twig:MainMenuElt>
 										</div>
 									{% endblock %}
@@ -46,7 +46,9 @@
 					</div>
 
 					<div class="w-64">
-						{% block panel__two %}{% endblock %}
+						<div class="sticky top-0 pt-4">
+							{% block panel__two %}{% endblock %}
+						</div>
 
 					</div>
 

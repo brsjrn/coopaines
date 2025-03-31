@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %} {% block title %}Coopaines {% endblock %} {%
+block panel__main %} {# Main top #}
+<div class="bg-gray-900 sticky top-0 pt-4 z-10">
+  <div class="flex justify-between border border-gray-800 p-4 rounded-t-md">
+    <div class="flex gap-2">
+      <div>←</div>
+      <a href="{{ path('app_app') }}">retour</a>
+    </div>
+  </div>
+</div>
+
+{# Main content #}
+<div class="border-x border-gray-800">
+  {% for i in 0..20 %}
+  <twig:FeedPost type="2" hasMeta="0"></twig:FeedPost>
+
+  {% endfor %}
+</div>
+
+{% endblock %} {% block panel__two %}
+<div class="flex flex-col">
+  {# Afficher mois #}
+  <div class="flex flex-col gap-4 p-4 pb-6 border-b border-b-gray-800">
+    <div class="flex gap-2 text-sm uppercase tracking-wider font-bold">
+      <twig:ux:icon name="heroicons:calendar-days-16-solid" class="h-5" />
+      <div>Mois</div>
+    </div>
+    <ul class="flex flex-col gap-2">
+      <li class="text-gray-400 hover:text-white">Janvier</li>
+      <li class="text-gray-400 hover:text-white">Février</li>
+      <li class="text-gray-400 hover:text-white">Mars</li>
+      <li class="text-gray-400 hover:text-white">Avril</li>
+      <li class="text-gray-400 hover:text-white">Mai</li>
+      <li class="text-gray-400 hover:text-white">Juin</li>
+      <li class="text-gray-400 hover:text-white">Juillet</li>
+      <li class="text-gray-400 hover:text-white">Aout</li>
+    </ul>
+  </div>
+
+  {# Trier par catégories #}
+  <div class="flex flex-col gap-4 p-4 pt-6">
+    <div class="flex gap-2 text-sm uppercase tracking-wider font-bold">
+      <twig:ux:icon name="mdi:filter" class="h-5" />
+      <div>Filtrer</div>
+    </div>
+    <div class="flex flex-col gap-2">
+		<div class="flex items-center gap-3"><input type="checkbox" class="checkbox checkbox-sm" />Concerts</div>
+		<div class="flex items-center gap-3"><input type="checkbox" class="checkbox checkbox-sm" />Conférences</div>
+		<div class="flex items-center gap-3"><input type="checkbox" class="checkbox checkbox-sm" />Ateliers</div>
+		<div class="flex items-center gap-3"><input type="checkbox" class="checkbox checkbox-sm" />Projection</div>
+		<div class="flex items-center gap-3"><input type="checkbox" class="checkbox checkbox-sm" />Soirée de soutien</div>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
