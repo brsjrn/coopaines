@@ -14,7 +14,7 @@
 	</div>
 
 	{# Main content #}
-	<div class="border-x border-gray-800">
+	<div class="border-x border-b border-gray-800 pb-6 rounded-b-md">
 		{% for i in 0..20 %}
 			{% set type = random(1, 4) %}
 			<twig:FeedPost type="{{ type }}"></twig:FeedPost>
