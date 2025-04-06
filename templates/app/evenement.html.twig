@@ -8,60 +8,196 @@
 	{# Main top #}
 	<div class="bg-gray-900 sticky top-0 pt-4 z-10">
 		<div class="flex justify-between border border-gray-800 p-4 rounded-t-md">
-			<div class="flex gap-2">
+			<div class="flex gap-2 items-center">
 				<div>←</div>
-				<a href="{{ path('app_app') }}">Retour</a>
+				<a href="{{ path('app_agenda') }}" class="block">retour à l'agenda</a>
 			</div>
 		</div>
 	</div>
 
 	{# Main content #}
 	<div class="border-x border-gray-800 border pb-6 rounded-b-md">
-		<div class="relative">
-			<img src="https://picsum.photos/800/300" alt="Couverture de l'événement" class="w-full h-48 object-cover">
+		<div
+			class="relative">
 
+			{# Cover #}
+			<img
+			src="https://picsum.photos/800/300" alt="Couverture de l'événement" class="w-full h-48 object-cover">
+
+			{# Date #}
 			<div class="absolute -bottom-16 left-8">
 				<twig:BlocDate></twig:BlocDate>
 			</div>
 		</div>
 
-		<div class="flex flex-col px-6 mt-4 gap-6">
-			<div class="flex justify-end gap-4">
-				<button class="btn btn-info"><twig:ux:icon name="mdi:share" class="h-6" /></button>
-				<button class="btn btn-dash btn-info">Ca m'intéresse</button>
+		<div class="flex flex-col px-6 mt-4 gap-8">
+			<div
+				class="flex justify-between pl-28">
+				{# Start hour #}
+				{# <div class="flex items-center px-4 border border-gray-800 rounded-md text-sm bg-gray-800">
+					à 9h30
+				</div> #}
+				<div class="flex items-center px-4 border border-gray-800 rounded-md text-gray-400 text-sm font-bold">
+					Débute à 9h30
+				</div>
+				{# <div class="ml-28">Débute à 9h30</div> #}
+
+				<div
+					class="flex justify-end gap-4">
+					{# "Share" button #}
+					<button class="btn btn-info"><twig:ux:icon name="mdi:share" class="h-6"/></button>
+
+					{# "Ca m'intéresse" button #}
+					<button class="btn btn-dash btn-info">Ca m'intéresse</button>
+				</div>
 			</div>
 
-			<h1 class="text-4xl font-bold">Concert de La Machine</h1>
-
-			<div class="flex flex-col gap-2 bg-gray-800 rounded-md p-4">
-				<div class="flex items-center gap-2 text-sm">
-					<twig:ux:icon name="mingcute:time-fill" class="h-4"/>
-					<div>Débute à 9h30</div>
-					<div>/</div>
-					<div>Dure 2h</div>
+			<div
+				class="flex flex-col gap-4">
+				{# Catégorie #}
+				<div class="flex">
+					<div class="text-xs tracking-widest border border-gray-800 px-2 py-1 rounded-md bg-green-900">#Mobilisation</div>
 				</div>
-				<div class="flex items-center gap-2 text-sm">
-					<twig:ux:icon name="solar:euro-bold" class="h-4"/>
+				
+				{# Title #}
+				<div>
+					<h1 class="text-4xl font-bold">Manifestation contre le projet Lyon-Turin</h1>
+				</div>
+			</div>
+
+			{# Informations #}
+			<div class="border border-gray-800 rounded-md text-gray-400 text-sm">
+				<div class="flex flex-col gap-2 p-3 px-3 border-b border-b-gray-800">
+					<div class="flex gap-1 text-sm text-gray-600 uppercase font-bold"><twig:ux:icon name="mdi:location" class="h-5"/><div>Lieu</div></div>
+					<div>Bourges / l'Antidote, café militant, 88 rue d'Auron</div>
+				</div>
+				<div class="flex flex-col gap-2 p-3 px-3">
+					<div class="flex gap-1 text-sm text-gray-600 uppercase font-bold"><twig:ux:icon name="material-symbols:euro" class="h-5"/><div>Tarif</div></div>
 					<div>Normal : 14€ / Réduit : 8€ / Moins de 6 ans : gratuit</div>
 				</div>
-				<div class="flex gap-1 text-sm">
-					<twig:ux:icon name="mdi:location" class="h-5"/>
-					<div class="font-bold">Bourges</div>
-					<div>/</div>
-					<div class="">l'Antidote, café militant, 88 rue d'Auron</div>
-				</div>
 			</div>
-			<div class="flex flex-col gap-2 text-gray-400">
+
+			{# Description #}
+			<div class="flex flex-col gap-3">
 				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis reiciendis quo asperiores dignissimos nostrum nisi similique quam magnam, molestias est fuga facere, animi adipisci sequi fugiat, iusto hic pariatur.</p>
 				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis reiciendis quo asperiores dignissimos nostrum nisi similique quam magnam, molestias est fuga facere, animi adipisci sequi fugiat, iusto hic pariatur.</p>
 				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis reiciendis quo asperiores dignissimos nostrum nisi similique quam magnam, molestias est fuga facere, animi adipisci sequi fugiat, iusto hic pariatur.</p>
 			</div>
 
-			{{ ux_map(myMap, { class: 'rounded-md aspect-video' })  }}
+			{# Location map #}
+			<div class="">
+				{{ ux_map(myMap, { class: 'rounded-md aspect-video' })  }}</div>
 		</div>
 	</div>
 
 
 {% endblock %}
 
-{% block panel__two %}{% endblock %}
+{% block panel__two %}
+	<div
+		class="flex flex-col">
+
+		{# Calendrier #}
+		<div class="flex flex-col gap-4 p-4">
+			<div class="flex text-sm uppercase tracking-wider font-bold justify-between">
+				<twig:ux:icon name="mingcute:left-line" class="h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"/>
+				<div>MARS</div>
+				<twig:ux:icon name="mingcute:right-line" class="h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"/>
+			</div>
+
+			<table class="border-separate border-spacing-0 overflow-hidden border border-gray-800 rounded-md">
+				<tr class="">
+					<th class="text-center align-middle text-sm py-2">L</th>
+					<th class="text-center align-middle text-sm py-2 border-x border-x-gray-800">M</th>
+					<th class="text-center align-middle text-sm py-2">M</th>
+					<th class="text-center align-middle text-sm py-2 border-x border-x-gray-800">J</th>
+					<th class="text-center align-middle text-sm py-2">V</th>
+					<th class="text-center align-middle text-sm py-2 border-x border-x-gray-800">S</th>
+					<th class="text-center align-middle text-sm py-2">D</th>
+				</tr>
+				<tr class="border-y border-y-gray-800">
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800"></td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800"></td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">1</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800">2</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">3</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800 bg-gray-500">4</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">5</td>
+				</tr>
+				<tr class="">
+					<td class="text-center align-middle text-xs py-2">6</td>
+					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">7</td>
+					<td class="text-center align-middle text-xs py-2">8</td>
+					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">9</td>
+					<td class="text-center align-middle text-xs py-2">10</td>
+					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">11</td>
+					<td class="text-center align-middle text-xs py-2">12</td>
+				</tr>
+				<tr class="">
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">13</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800">14</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 bg-gray-400 text-gray-950">15</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800">16</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 bg-gray-700">17</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800">18</td>
+					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">19</td>
+				</tr>
+				<tr class="">
+					<td class="text-center align-middle text-xs py-2">20</td>
+					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">21</td>
+					<td class="text-center align-middle text-xs py-2">22</td>
+					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">23</td>
+					<td class="text-center align-middle text-xs py-2">24</td>
+					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800 bg-gray-800">25</td>
+					<td class="text-center align-middle text-xs py-2">26</td>
+				</tr>
+				<tr class="">
+					<td class="text-center align-middle text-xs py-2 border-t border-gray-800">27</td>
+					<td class="text-center align-middle text-xs py-2 border-t border-gray-800 border-x border-x-gray-800">28</td>
+					<td class="text-center align-middle text-xs py-2 border-t border-gray-800">29</td>
+					<td class="text-center align-middle text-xs py-2 border-t border-gray-800 border-x border-x-gray-800">30</td>
+					<td class="text-center align-middle text-xs py-2 border-t border-gray-800"></td>
+					<td class="text-center align-middle text-xs py-2 border-t border-gray-800 border-x border-x-gray-800"></td>
+					<td class="text-center align-middle text-xs py-2 border-t border-gray-800"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="w-full h-px my-2 bg-gray-800"></div>
+
+		{# Organisateur #}
+		<div class="flex flex-col gap-3 p-4">
+			<div class="flex gap-2 text-sm uppercase tracking-wider font-bold">
+				<twig:ux:icon name="eos-icons:admin" class="h-5"/>
+				<div>Organisateur·ice</div>
+			</div>
+
+			<a href="#" class="flex items-center gap-4 p-4 mt-2 border border-gray-800 bg-gray-700 rounded-md text-blue-300 font-bold hover:bg-gray-600">
+				<div class="w-9 h-8 bg-red-500 overflow-hidden rounded-sm"></div>
+				<div class="text-sm">La Maison Des Vies Locales</div>
+			</a>
+		</div>
+
+		<div class="w-full h-px my-2 bg-gray-800"></div>
+
+		{# Autres événements #}
+		<div class="flex flex-col gap-4 p-4">
+			<div class="flex gap-2 text-sm uppercase tracking-wider font-bold">
+				<twig:ux:icon
+				name="ic:round-list" class="h-5"/>
+				{# <twig:ux:icon name="mingcute:information-fill" class="h-5" /> #}
+				<div>Autres événements</div>
+			</div>
+			<div class="flex flex-col gap-4 text-gray-300">
+				<a href="#" class="flex items-center gap-3 hover:text-white">Projection - Z de Costa-Gavras</a>
+				<a href="#" class="flex items-center gap-3 hover:text-white">Atelier - Cyanotype</a>
+				<a href="#" class="flex items-center gap-3 hover:text-white">Marché Communard</a>
+				<a href="#" class="flex items-center gap-3 hover:text-white">Journée Commune de la CIHB</a>
+				<a href="#" class="flex items-center gap-3 hover:text-white">Conférence - Les parents et les tous petits</a>
+				<a href="#" class="flex items-center gap-3 hover:text-white">Atelier - Linogravure</a>
+				<a href="#" class="flex items-center gap-3 hover:text-white">Projection - le Seigneur des Anneaux</a>
+			</ul>
+		</div>
+	</div>
+
+{% endblock %}

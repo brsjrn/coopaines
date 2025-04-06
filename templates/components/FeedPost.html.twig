@@ -1,5 +1,6 @@
 <div{{attributes}} class="group p-6 border-b border-b-gray-800 bg-gray-900 hover:bg-gray-800">
     {% set typeTitle = "" %}
+    {% set showMeta = hasMeta == true or hasMeta == 'true' %}
 
     {% if type == 1 %}
         {% set typeTitle = 'a partagé un nouveau trajet de <span class="font-bold">covoiturage</span>' %}

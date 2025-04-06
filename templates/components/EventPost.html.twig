@@ -1,33 +1,40 @@
-<a {{ attributes }} href="{{ path('app_evenement') }}" class="flex gap-6">
-    {# Date #}
-    <div class="flex flex-col gap-4">
-        <twig:BlocDate></twig:BlocDate>
-        <div  class="w-full text-center bg-gray-800 group-hover:bg-gray-700 text-sm px-2 py-1 rounded-md">Concert</div>
-    </div>
+{# EVENT POST TYPE #}
 
-    {#  #}
-    <div class="flex flex-col gap-4">
-        <div class="text-3xl font-bold">Concert de La Machine</div>
-        <div class="flex flex-col gap-2">
-            <div class="flex items-center gap-2 text-sm">
-                <twig:ux:icon name="mingcute:time-fill" class="h-4" />
-                <div>Débute à 9h30</div>
-                <div>/</div>
-                <div>Dure 2h</div>
-            </div>
-            <div class="flex items-center gap-2 text-sm">
-                <twig:ux:icon name="solar:euro-bold" class="h-4" />
-                <div>Normal : 14€ / Réduit : 8€ / Moins de 6 ans : gratuit</div>
-            </div>
-            <div class="flex gap-1 text-sm">
-                <twig:ux:icon name="mdi:location" class="h-5" />
-                <div class="font-bold">Bourges</div>
-                <div>/</div>
-                <div class="">l'Antidote, café militant, 88 rue d'Auron</div>
-            </div>
-        </div>
-        <div class="text-gray-400">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis reiciendis quo asperiores dignissimos nostrum nisi similique quam magnam, molestias est fuga facere, animi adipisci sequi fugiat, iusto hic pariatur.
-        </div>
-    </div>
+<a
+	{{ attributes }} href="{{ path('app_evenement') }}" class="flex gap-6">
+	{# Date #}
+	<div class="flex flex-col gap-4">
+		<twig:BlocDate></twig:BlocDate>
+		<div class="w-full text-center bg-gray-800 group-hover:bg-gray-700 text-sm px-2 py-2 rounded-md">à 9h30</div>
+	</div>
+
+	<div
+		class="flex flex-col gap-4">
+		{# Catgory #}
+		<div class="flex">
+			<div class="text-xs tracking-widest border border-gray-800 px-2 py-1 rounded-md bg-green-900">#Mobilisation</div>
+		</div>
+
+		{# Title #}
+		<div class="text-3xl font-bold">Manifestation contre le projet Lyon-Turin</div>
+
+		{# Informations #}
+		<div class="flex flex-col gap-2 text-gray-400 text-sm">
+			<div class="flex gap-1 items-center">
+				<twig:ux:icon name="mdi:location" class="h-5"/>
+				<div class="">Bourges / l'Antidote, café militant, 88 rue d'Auron</div>
+			</div>
+			<div
+				class="flex gap-1 items-center">
+				{# <twig:ux:icon name="solar:euro-bold" class="h-4"/> #}
+				<twig:ux:icon name="material-symbols:euro" class="h-5"/>
+				<div>Normal : 14€ / Réduit : 8€ / Moins de 6 ans : gratuit</div>
+			</div>
+		</div>
+
+
+		{# <div class="text-gray-400">
+											Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis reiciendis quo asperiores dignissimos nostrum nisi similique quam magnam, molestias est fuga facere, animi adipisci sequi fugiat, iusto hic pariatur.
+										</div> #}
+	</div>
 </a>
