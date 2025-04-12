@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %} {% block title %}Coopaines {% endblock %} {%
+block panel__main %} {# Main top #}
+<div class="bg-gray-900 sticky top-0 pt-4 z-10">
+  <div class="flex justify-between border border-gray-800 p-4 rounded-t-md">
+    <div class="flex gap-2 items-center">
+      <div>←</div>
+      <a href="{{ path('app_agenda') }}" class="block">retour à l'annuaire</a>
+    </div>
+  </div>
+</div>
+
+{# Main content #}
+<div class="border-x border-gray-800 border pb-6 rounded-b-md">
+  <div class="relative">
+    {# Cover #}
+    <img
+      src="https://picsum.photos/800/300"
+      alt="Couverture de l'événement"
+      class="w-full h-48 object-cover"
+    />
+  </div>
+
+  <div class="flex flex-col mt-6">
+    <div class="flex flex-col gap-4 px-6">
+      {# Catégorie #}
+      <div class="flex gap-2">
+        <div
+          class="text-xs tracking-widest border border-gray-800 px-2 py-1 rounded-md bg-green-900"
+        >
+          #TierLieu
+        </div>
+        <div
+          class="text-xs tracking-widest border border-gray-800 px-2 py-1 rounded-md bg-blue-900"
+        >
+          #Bar
+        </div>
+      </div>
+
+      {# Title #}
+      <div>
+        <h1 class="text-4xl font-bold">La Maison Des Vies Locales</h1>
+      </div>
+    </div>
+
+	<div class="flex justify-start gap-6 mt-8 pl-6 border-b border-b-gray-800">
+		<a href="{{ path('app_entite') }}" class="text-gray-300 hover:text-white pb-2 border-b-4 border-b-blue-500">Présentation</a>
+		<a href="{{ path('app_entiteEvenement') }}" class="text-gray-300 hover:text-white pb-2 border-b-4 border-b-slate-900 hover:border-b-blue-500">Evénéments</a>
+	</div>
+
+    <div class="flex flex-col gap-6 px-6 pt-6">
+      {# Informations #}
+      <div class="border border-gray-800 rounded-md text-gray-400 text-sm">
+        <div class="flex flex-col gap-2 p-3 px-3 border-b border-b-gray-800">
+          <div class="flex gap-1 text-sm text-gray-600 uppercase font-bold">
+            <twig:ux:icon name="mdi:location" class="h-5" />
+            <div>Lieu</div>
+          </div>
+          <div>Morogues / Moulin du Brioux</div>
+        </div>
+      </div>
+
+      {# Description #}
+      <div class="flex flex-col gap-3">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+          perspiciatis reiciendis quo asperiores dignissimos nostrum nisi
+          similique quam magnam, molestias est fuga facere, animi adipisci sequi
+          fugiat, iusto hic pariatur.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+          perspiciatis reiciendis quo asperiores dignissimos nostrum nisi
+          similique quam magnam, molestias est fuga facere, animi adipisci sequi
+          fugiat, iusto hic pariatur.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+          perspiciatis reiciendis quo asperiores dignissimos nostrum nisi
+          similique quam magnam, molestias est fuga facere, animi adipisci sequi
+          fugiat, iusto hic pariatur.
+        </p>
+      </div>
+
+      {# Location map #}
+      <div class="">
+        {{ ux_map(myMap, { class: "rounded-md aspect-video" }) }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block panel__two %}
+<div class="flex flex-col"></div>
+
+{% endblock %}

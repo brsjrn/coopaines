@@ -62,4 +62,40 @@ final class AppController extends AbstractController
             'controller_name' => 'AppController',
         ]);
     }
+
+    #[Route('/entite', name: 'app_entite')]
+    public function entite(): Response
+    {
+        // Create a new map instance
+        $myMap = (new Map());
+
+        $myMap
+            // Explicitly set the center and zoom
+            ->center(new Point(46.903354, 1.888334))
+            ->zoom(6)
+
+            // Or automatically fit the bounds to the markers
+            ->fitBoundsToMarkers()
+        ;
+
+        $myMap
+            ->addMarker(new Marker(
+                position: new Point(48.8566, 2.3522),
+                title: 'Paris'
+            ))
+        ;
+
+        return $this->render('app/entite.html.twig', [
+            'controller_name' => 'AppController',
+            'myMap' => $myMap
+        ]);
+    }
+    
+    #[Route('/entite-evenement', name: 'app_entiteEvenement')]
+    public function entiteEvenement(): Response
+    {
+        return $this->render('app/entite-evenement.html.twig', [
+            'controller_name' => 'AppController',
+        ]);
+    }
 }

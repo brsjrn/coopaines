@@ -3,6 +3,27 @@
 {% block title %}Coopaines
 {% endblock %}
 
+{% block actions %}
+<a href="#" class="flex"><button class="flex btn btn-primary w-full gap-2"><twig:ux:icon name="ic:baseline-add" class="h-5" /> <span>Créer un événement</span></button></a>
+{# <a href="#"><button class="btn btn-info flex gap-2 w-full"><twig:ux:icon name="subway:mark-2" class="h-5" /><span>Mes événements</span></button></a> #}
+<div class="flex flex-col gap-4 mt-8">
+	<div class="flex flex-col gap-6">
+		<twig:MainMenuElt
+		link="#"
+		title="Mes événements"
+		icon="ic:round-list"
+		></twig:MainMenuElt>
+		<twig:MainMenuElt
+		  link="#"
+		  title="Les événements qui m'intéressent"
+		  icon="material-symbols:star-rounded"
+		></twig:MainMenuElt>
+		</div>
+	{# <a href="#" class="flex gap-3"><twig:ux:icon name="subway:mark-2" class="h-5" /><span>Mes événements</span></a>
+	<a href="#" class="flex gap-3"><twig:ux:icon name="material-symbols:star-rounded" class="h-6" /><span>Les événements qui m'intéressent</span></a> #}
+</div>
+{% endblock actions %}
+
 {% block panel__main %}
 
 	{# Main top #}
@@ -27,41 +48,34 @@
 			{# Date #}
 			<div class="absolute -bottom-16 left-8">
 				<twig:BlocDate></twig:BlocDate>
+				<div class="w-full text-center bg-gray-800 group-hover:bg-gray-700 text-sm px-2 py-2 mt-4 rounded-md">à 9h30</div>
 			</div>
 		</div>
 
 		<div class="flex flex-col px-6 mt-4 gap-8">
 			<div
-				class="flex justify-between pl-28">
-				{# Start hour #}
-				{# <div class="flex items-center px-4 border border-gray-800 rounded-md text-sm bg-gray-800">
-					à 9h30
-				</div> #}
-				<div class="flex items-center px-4 border border-gray-800 rounded-md text-gray-400 text-sm font-bold">
-					Débute à 9h30
-				</div>
-				{# <div class="ml-28">Débute à 9h30</div> #}
-
-				<div
 					class="flex justify-end gap-4">
 					{# "Share" button #}
 					<button class="btn btn-info"><twig:ux:icon name="mdi:share" class="h-6"/></button>
 
 					{# "Ca m'intéresse" button #}
-					<button class="btn btn-dash btn-info">Ca m'intéresse</button>
+					<button class=" flex gap-2 btn btn-dash btn-info"><twig:ux:icon name="material-symbols:star-rounded" class="h-5" /><span><span></span>Ca m'intéresse</span></button>
+
+					{# "Covoiturage" button #}
+					<button class="btn btn-secondary">Covoiturer</button>
 				</div>
-			</div>
 
 			<div
 				class="flex flex-col gap-4">
-				{# Catégorie #}
-				<div class="flex">
-					<div class="text-xs tracking-widest border border-gray-800 px-2 py-1 rounded-md bg-green-900">#Mobilisation</div>
-				</div>
 				
 				{# Title #}
 				<div>
 					<h1 class="text-4xl font-bold">Manifestation contre le projet Lyon-Turin</h1>
+				</div>
+
+				{# Catégorie #}
+				<div class="flex">
+					<div class="text-xs tracking-widest border border-gray-800 px-2 py-1 rounded-md bg-green-900">#Mobilisation</div>
 				</div>
 			</div>
 
@@ -98,70 +112,7 @@
 		class="flex flex-col">
 
 		{# Calendrier #}
-		<div class="flex flex-col gap-4 p-4">
-			<div class="flex text-sm uppercase tracking-wider font-bold justify-between">
-				<twig:ux:icon name="mingcute:left-line" class="h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"/>
-				<div>MARS</div>
-				<twig:ux:icon name="mingcute:right-line" class="h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"/>
-			</div>
-
-			<table class="border-separate border-spacing-0 overflow-hidden border border-gray-800 rounded-md">
-				<tr class="">
-					<th class="text-center align-middle text-sm py-2">L</th>
-					<th class="text-center align-middle text-sm py-2 border-x border-x-gray-800">M</th>
-					<th class="text-center align-middle text-sm py-2">M</th>
-					<th class="text-center align-middle text-sm py-2 border-x border-x-gray-800">J</th>
-					<th class="text-center align-middle text-sm py-2">V</th>
-					<th class="text-center align-middle text-sm py-2 border-x border-x-gray-800">S</th>
-					<th class="text-center align-middle text-sm py-2">D</th>
-				</tr>
-				<tr class="border-y border-y-gray-800">
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800"></td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800"></td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">1</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800">2</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">3</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800 bg-gray-500">4</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">5</td>
-				</tr>
-				<tr class="">
-					<td class="text-center align-middle text-xs py-2">6</td>
-					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">7</td>
-					<td class="text-center align-middle text-xs py-2">8</td>
-					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">9</td>
-					<td class="text-center align-middle text-xs py-2">10</td>
-					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">11</td>
-					<td class="text-center align-middle text-xs py-2">12</td>
-				</tr>
-				<tr class="">
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">13</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800">14</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 bg-gray-400 text-gray-950">15</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800">16</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 bg-gray-700">17</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800 border-x border-x-gray-800">18</td>
-					<td class="text-center align-middle text-xs py-2 border-y border-gray-800">19</td>
-				</tr>
-				<tr class="">
-					<td class="text-center align-middle text-xs py-2">20</td>
-					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">21</td>
-					<td class="text-center align-middle text-xs py-2">22</td>
-					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800">23</td>
-					<td class="text-center align-middle text-xs py-2">24</td>
-					<td class="text-center align-middle text-xs py-2 border-x border-x-gray-800 bg-gray-800">25</td>
-					<td class="text-center align-middle text-xs py-2">26</td>
-				</tr>
-				<tr class="">
-					<td class="text-center align-middle text-xs py-2 border-t border-gray-800">27</td>
-					<td class="text-center align-middle text-xs py-2 border-t border-gray-800 border-x border-x-gray-800">28</td>
-					<td class="text-center align-middle text-xs py-2 border-t border-gray-800">29</td>
-					<td class="text-center align-middle text-xs py-2 border-t border-gray-800 border-x border-x-gray-800">30</td>
-					<td class="text-center align-middle text-xs py-2 border-t border-gray-800"></td>
-					<td class="text-center align-middle text-xs py-2 border-t border-gray-800 border-x border-x-gray-800"></td>
-					<td class="text-center align-middle text-xs py-2 border-t border-gray-800"></td>
-				</tr>
-			</table>
-		</div>
+		<twig:Calendar><</twig:Calendar>
 
 		<div class="w-full h-px my-2 bg-gray-800"></div>
 
@@ -172,7 +123,7 @@
 				<div>Organisateur·ice</div>
 			</div>
 
-			<a href="#" class="flex items-center gap-4 p-4 mt-2 border border-gray-800 bg-gray-700 rounded-md text-blue-300 font-bold hover:bg-gray-600">
+			<a href="{{ path('app_entite') }}" class="flex items-center gap-4 p-4 mt-2 border border-gray-800 bg-gray-700 rounded-md text-blue-300 font-bold hover:bg-gray-600">
 				<div class="w-9 h-8 bg-red-500 overflow-hidden rounded-sm"></div>
 				<div class="text-sm">La Maison Des Vies Locales</div>
 			</a>
