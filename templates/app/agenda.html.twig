@@ -4,31 +4,14 @@
 {% endblock %}
 
 {% block actions %}
-<a href="#" class="flex"><button class="flex btn btn-primary w-full gap-2"><twig:ux:icon name="ic:baseline-add" class="h-5" /> <span>Créer un événement</span></button></a>
-{# <a href="#"><button class="btn btn-info flex gap-2 w-full"><twig:ux:icon name="subway:mark-2" class="h-5" /><span>Mes événements</span></button></a> #}
-<div class="flex flex-col gap-4 mt-8">
-	<div class="flex flex-col gap-6">
-		<twig:MainMenuElt
-		link="#"
-		title="Mes événements"
-		icon="ic:round-list"
-		></twig:MainMenuElt>
-		<twig:MainMenuElt
-		  link="#"
-		  title="Les événements qui m'intéressent"
-		  icon="material-symbols:star-rounded"
-		></twig:MainMenuElt>
-		</div>
-	{# <a href="#" class="flex gap-3"><twig:ux:icon name="subway:mark-2" class="h-5" /><span>Mes événements</span></a>
-	<a href="#" class="flex gap-3"><twig:ux:icon name="material-symbols:star-rounded" class="h-6" /><span>Les événements qui m'intéressent</span></a> #}
-</div>
+{% include 'fragments/events-menu.html.twig' %}
 {% endblock actions %}
 
 {%
 block panel__main %}
 	{# Main top #}
-	<div class="bg-gray-900 sticky top-0 pt-4 z-10">
-		<div class="flex justify-between border border-gray-800 p-4 rounded-t-md">
+	<div class="bg-bluesky-950 sticky top-0 pt-4 z-10">
+		<div class="flex justify-between border border-bluesky-900 p-4 rounded-t-md">
 			<div class="flex gap-2 items-center">
 				<div>←</div>
 				<a href="{{ path('app_app') }}" class="block">retour à l'accueil</a>
@@ -37,7 +20,7 @@ block panel__main %}
 	</div>
 
 	{# Main content #}
-	<div class="border-x border-gray-800">
+	<div class="border-x border-bluesky-900">
 		{% for i in 0..20 %}
 			{# Evenement #}
 			<twig:FeedPost type="2" hasMeta="{{ false }}"></twig:FeedPost>
@@ -53,18 +36,7 @@ block panel__main %}
 		{# Calendrier #}
 		<twig:Calendar><</twig:Calendar>
 
-		<div class="w-full h-px my-2 bg-gray-800"></div>
-
-		{# Trier par catégories #}
-		{# <div class="flex flex-col gap-4 p-4">
-			<div class="flex gap-2 text-sm uppercase tracking-wider font-bold">
-				<twig:ux:icon name="subway:mark-2" class="h-5" />
-				<div>Vos événements</div>
-			</div>
-			<a href="#"><button class="btn btn-info w-full">Intéressé.e</button></a>
-		</div> #}
-
-		{# <div class="w-full h-px my-2 bg-gray-800"></div> #}
+		<div class="w-full h-px my-2 bg-bluesky-800"></div>
 
 		{# Trier par catégories #}
 		<div class="flex flex-col gap-4 p-4">
@@ -79,7 +51,7 @@ block panel__main %}
 				<div class="flex items-center gap-3"><input type="checkbox" class="checkbox checkbox-sm"/>Projection</div>
 				<div class="flex items-center gap-3"><input type="checkbox" class="checkbox checkbox-sm"/>Soirée de soutien</div>
 				<div class="flex items-center gap-3"><input type="checkbox" class="checkbox checkbox-sm"/>Mobilisation</div>
-			</ul>
+			</div>
 		</div>
 	</div>
 

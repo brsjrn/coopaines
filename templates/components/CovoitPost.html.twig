@@ -1,18 +1,21 @@
-<div {{ attributes }} class="flex gap-6">
+<a
+	{{ attributes }} href="{{ path('app_covoiturage') }}" class="flex gap-6">
     {# Date #}
     <div class="flex flex-col gap-4">
         <twig:BlocDate></twig:BlocDate>
-        <div  class="flex w-full justify-center items-center bg-gray-800 group-hover:bg-gray-700 px-2 py-1 rounded-md gap-2"><div>3</div><twig:ux:icon name="mingcute:seat-fill" class="h-5" /></div>
+        <twig:BlocTime></twig:BlocTime>
     </div>
 
     {#  #}
     <div class="flex flex-col gap-2">
-        <div class="flex items-center gap-2 text-sm"><twig:ux:icon name="material-symbols:rocket-launch" class="h-4" /><div>Départ à 9h30</div></div>
-        <div class="flex flex-col gap-1 text-2xl font-bold">
-            <div>Morogues</div>
-            {# <div>→</div> #}
-            <div>↓</div>
-            <div>Les Aix d'Angillon</div>
-        </div>
-    </div>
-</div>
+		<div class="inline-flex items-center gap-2 text-xs tracking-widest border border-bluesky-900 px-2 py-1 rounded-md bg-green-900 w-max max-w-fit">
+			<twig:ux:icon name="mingcute:seat-fill" class="h-4" />
+			<div>3 places</div>
+		</div>
+		<div class="flex flex-col gap-1 text-2xl font-bold">
+			<div>Morogues</div>
+			<div>↓</div>
+			<div>Les Aix d'Angillon</div>
+		</div>
+	</div>
+</a>

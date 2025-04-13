@@ -6,17 +6,17 @@
 {% block panel__main %}
 
 	{# Main top #}
-	<div class="bg-gray-900 sticky top-0 pt-4">
-		<div class="flex justify-between border border-gray-800 p-4 rounded-t-md">
+	<div class="bg-bluesky-950 sticky top-0 pt-4">
+		<div class="flex justify-between border border-bluesky-900 p-4 rounded-t-md">
 			<div>Accueil</div>
 			<div><twig:ux:icon name="icon-park-outline:config" class="w-5 cursor-pointer"/></div>
 		</div>
 	</div>
 
 	{# Main content #}
-	<div class="border-x border-b border-gray-800 pb-6 rounded-b-md">
+	<div class="border-x border-b border-bluesky-900 pb-6 rounded-b-md">
 		{% for i in 0..20 %}
-			{% set type = random(1, 4) %}
+			{% set type = random(1, 2) %}
 			<twig:FeedPost type="{{ type }}"></twig:FeedPost>
 
 		{% endfor %}

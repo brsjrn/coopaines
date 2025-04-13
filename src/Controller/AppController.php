@@ -55,6 +55,14 @@ final class AppController extends AbstractController
         ]);
     }
 
+    #[Route('/covoiturages', name: 'app_covoiturages')]
+    public function covoiturages(): Response
+    {
+        return $this->render('app/covoiturages.html.twig', [
+            'controller_name' => 'AppController',
+        ]);
+    }
+
     #[Route('/covoiturage', name: 'app_covoiturage')]
     public function covoiturage(): Response
     {

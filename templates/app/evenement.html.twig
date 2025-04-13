@@ -4,31 +4,14 @@
 {% endblock %}
 
 {% block actions %}
-<a href="#" class="flex"><button class="flex btn btn-primary w-full gap-2"><twig:ux:icon name="ic:baseline-add" class="h-5" /> <span>Créer un événement</span></button></a>
-{# <a href="#"><button class="btn btn-info flex gap-2 w-full"><twig:ux:icon name="subway:mark-2" class="h-5" /><span>Mes événements</span></button></a> #}
-<div class="flex flex-col gap-4 mt-8">
-	<div class="flex flex-col gap-6">
-		<twig:MainMenuElt
-		link="#"
-		title="Mes événements"
-		icon="ic:round-list"
-		></twig:MainMenuElt>
-		<twig:MainMenuElt
-		  link="#"
-		  title="Les événements qui m'intéressent"
-		  icon="material-symbols:star-rounded"
-		></twig:MainMenuElt>
-		</div>
-	{# <a href="#" class="flex gap-3"><twig:ux:icon name="subway:mark-2" class="h-5" /><span>Mes événements</span></a>
-	<a href="#" class="flex gap-3"><twig:ux:icon name="material-symbols:star-rounded" class="h-6" /><span>Les événements qui m'intéressent</span></a> #}
-</div>
+{% include 'fragments/events-menu.html.twig' %}
 {% endblock actions %}
 
 {% block panel__main %}
 
 	{# Main top #}
-	<div class="bg-gray-900 sticky top-0 pt-4 z-10">
-		<div class="flex justify-between border border-gray-800 p-4 rounded-t-md">
+	<div class="bg-bluesky-950 sticky top-0 pt-4 z-10">
+		<div class="flex justify-between border border-bluesky-900 p-4 rounded-t-md">
 			<div class="flex gap-2 items-center">
 				<div>←</div>
 				<a href="{{ path('app_agenda') }}" class="block">retour à l'agenda</a>
@@ -37,7 +20,7 @@
 	</div>
 
 	{# Main content #}
-	<div class="border-x border-gray-800 border pb-6 rounded-b-md">
+	<div class="border border-t-0 border-bluesky-900 pb-6 rounded-b-md">
 		<div
 			class="relative">
 
@@ -48,15 +31,17 @@
 			{# Date #}
 			<div class="absolute -bottom-16 left-8">
 				<twig:BlocDate></twig:BlocDate>
-				<div class="w-full text-center bg-gray-800 group-hover:bg-gray-700 text-sm px-2 py-2 mt-4 rounded-md">à 9h30</div>
+				<div class="w-full mt-4">
+					<twig:BlocTime></twig:BlocTime>
+				</div>
 			</div>
 		</div>
 
 		<div class="flex flex-col px-6 mt-4 gap-8">
 			<div
-					class="flex justify-end gap-4">
+					class="flex justify-end gap-2">
 					{# "Share" button #}
-					<button class="btn btn-info"><twig:ux:icon name="mdi:share" class="h-6"/></button>
+					{# <button class="btn btn-info"><twig:ux:icon name="mdi:share" class="h-6"/></button> #}
 
 					{# "Ca m'intéresse" button #}
 					<button class=" flex gap-2 btn btn-dash btn-info"><twig:ux:icon name="material-symbols:star-rounded" class="h-5" /><span><span></span>Ca m'intéresse</span></button>
@@ -75,18 +60,18 @@
 
 				{# Catégorie #}
 				<div class="flex">
-					<div class="text-xs tracking-widest border border-gray-800 px-2 py-1 rounded-md bg-green-900">#Mobilisation</div>
+					<div class="text-xs tracking-widest border border-bluesky-900 px-2 py-1 rounded-md bg-green-900">#Mobilisation</div>
 				</div>
 			</div>
 
 			{# Informations #}
-			<div class="border border-gray-800 rounded-md text-gray-400 text-sm">
-				<div class="flex flex-col gap-2 p-3 px-3 border-b border-b-gray-800">
-					<div class="flex gap-1 text-sm text-gray-600 uppercase font-bold"><twig:ux:icon name="mdi:location" class="h-5"/><div>Lieu</div></div>
+			<div class="border border-bluesky-900 rounded-md text-bluesky-400 text-sm">
+				<div class="flex flex-col gap-2 p-3 px-3 border-b border-b-bluesky-800">
+					<div class="flex gap-1 text-sm text-bluesky-600 uppercase font-bold"><twig:ux:icon name="mdi:location" class="h-5"/><div>Lieu</div></div>
 					<div>Bourges / l'Antidote, café militant, 88 rue d'Auron</div>
 				</div>
 				<div class="flex flex-col gap-2 p-3 px-3">
-					<div class="flex gap-1 text-sm text-gray-600 uppercase font-bold"><twig:ux:icon name="material-symbols:euro" class="h-5"/><div>Tarif</div></div>
+					<div class="flex gap-1 text-sm text-bluesky-600 uppercase font-bold"><twig:ux:icon name="material-symbols:euro" class="h-5"/><div>Tarif</div></div>
 					<div>Normal : 14€ / Réduit : 8€ / Moins de 6 ans : gratuit</div>
 				</div>
 			</div>
@@ -114,7 +99,7 @@
 		{# Calendrier #}
 		<twig:Calendar><</twig:Calendar>
 
-		<div class="w-full h-px my-2 bg-gray-800"></div>
+		<div class="w-full h-px my-2 bg-bluesky-800"></div>
 
 		{# Organisateur #}
 		<div class="flex flex-col gap-3 p-4">
@@ -123,13 +108,13 @@
 				<div>Organisateur·ice</div>
 			</div>
 
-			<a href="{{ path('app_entite') }}" class="flex items-center gap-4 p-4 mt-2 border border-gray-800 bg-gray-700 rounded-md text-blue-300 font-bold hover:bg-gray-600">
+			<a href="{{ path('app_entite') }}" class="flex items-center gap-4 p-4 mt-2 border border-bluesky-900 bg-bluesky-900 rounded-md text-blue-300 font-bold hover:bg-bluesky-800">
 				<div class="w-9 h-8 bg-red-500 overflow-hidden rounded-sm"></div>
 				<div class="text-sm">La Maison Des Vies Locales</div>
 			</a>
 		</div>
 
-		<div class="w-full h-px my-2 bg-gray-800"></div>
+		<div class="w-full h-px my-2 bg-bluesky-800"></div>
 
 		{# Autres événements #}
 		<div class="flex flex-col gap-4 p-4">
@@ -139,7 +124,7 @@
 				{# <twig:ux:icon name="mingcute:information-fill" class="h-5" /> #}
 				<div>Autres événements</div>
 			</div>
-			<div class="flex flex-col gap-4 text-gray-300">
+			<div class="flex flex-col gap-4 text-bluesky-300">
 				<a href="#" class="flex items-center gap-3 hover:text-white">Projection - Z de Costa-Gavras</a>
 				<a href="#" class="flex items-center gap-3 hover:text-white">Atelier - Cyanotype</a>
 				<a href="#" class="flex items-center gap-3 hover:text-white">Marché Communard</a>
@@ -147,7 +132,7 @@
 				<a href="#" class="flex items-center gap-3 hover:text-white">Conférence - Les parents et les tous petits</a>
 				<a href="#" class="flex items-center gap-3 hover:text-white">Atelier - Linogravure</a>
 				<a href="#" class="flex items-center gap-3 hover:text-white">Projection - le Seigneur des Anneaux</a>
-			</ul>
+			</div>
 		</div>
 	</div>
 

@@ -1,4 +1,4 @@
-<div{{attributes}} class="group p-6 border-b border-b-gray-800 bg-gray-900 hover:bg-gray-800">
+<div{{attributes}} class="group p-6 border-b border-b-bluesky-800 bg-bluesky-950 hover:bg-bluesky-900">
     {% set typeTitle = "" %}
     {% set showMeta = hasMeta == true or hasMeta == 'true' %}
 
@@ -24,7 +24,7 @@
 
 	{% if hasMeta %}
         {# Post intro #}
-        <div class="flex text-sm text-gray-500 justify-between mb-6">
+        <div class="flex text-sm text-bluesky-500 justify-between mb-6">
             <div class="flex gap-2 items-center">
                 <twig:ux:icon name="{{ typeIcon }}" class="h-4" /> <div>Bidule {{ typeTitle | raw }}</div>
             </div>

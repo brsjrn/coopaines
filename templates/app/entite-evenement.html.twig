@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %} {% block title %}Coopaines {% endblock %} {%
 block panel__main %} {# Main top #}
-<div class="bg-gray-900 sticky top-0 pt-4 z-10">
-  <div class="flex justify-between border border-gray-800 p-4 rounded-t-md">
+<div class="bg-bluesky-950 sticky top-0 pt-4 z-10">
+  <div class="flex justify-between border border-bluesky-900 p-4 rounded-t-md">
     <div class="flex gap-2 items-center">
       <div>←</div>
       <a href="{{ path('app_agenda') }}" class="block">retour à l'annuaire</a>
@@ -10,7 +10,7 @@ block panel__main %} {# Main top #}
 </div>
 
 {# Main content #}
-<div class="border-x border-gray-800 border pb-6 rounded-b-md">
+<div class="border-x border-bluesky-900 border pb-6 rounded-b-md">
   <div class="relative">
     {# Cover #}
     <img
@@ -25,12 +25,12 @@ block panel__main %} {# Main top #}
       {# Catégorie #}
       <div class="flex gap-2">
         <div
-          class="text-xs tracking-widest border border-gray-800 px-2 py-1 rounded-md bg-green-900"
+          class="text-xs tracking-widest border border-bluesky-900 px-2 py-1 rounded-md bg-green-900"
         >
           #TierLieu
         </div>
         <div
-          class="text-xs tracking-widest border border-gray-800 px-2 py-1 rounded-md bg-blue-900"
+          class="text-xs tracking-widest border border-bluesky-900 px-2 py-1 rounded-md bg-blue-900"
         >
           #Bar
         </div>
@@ -42,15 +42,15 @@ block panel__main %} {# Main top #}
       </div>
     </div>
 
-    <div class="flex justify-start gap-6  mt-8 pl-6 border-b border-b-gray-800">
+    <div class="flex justify-start gap-6  mt-8 pl-6 border-b border-b-bluesky-800">
       <a
         href="{{ path('app_entite') }}"
-        class="text-gray-300 hover:text-white pb-2 border-b-4 border-b-slate-900 hover:border-b-blue-500"
+        class="text-bluesky-300 hover:text-white pb-2 border-b-4 border-b-slate-900 hover:border-b-blue-500"
         >Présentation</a
       >
       <a
         href="{{ path('app_entiteEvenement') }}"
-        class="text-gray-300 hover:text-white pb-2 border-b-4 border-b-blue-500"
+        class="text-bluesky-300 hover:text-white pb-2 border-b-4 border-b-blue-500"
         >Evénéments</a
       >
     </div>
